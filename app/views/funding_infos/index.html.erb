@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Funding Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fund code</th>
+      <th>Department code</th>
+      <th>Program code</th>
+      <th>Project code</th>
+      <th>Account code</th>
+      <th>Client</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funding_infos.each do |funding_info| %>
+      <tr>
+        <td><%= funding_info.fund_code %></td>
+        <td><%= funding_info.department_code %></td>
+        <td><%= funding_info.program_code %></td>
+        <td><%= funding_info.project_code %></td>
+        <td><%= funding_info.account_code %></td>
+        <td><%= funding_info.client_id %></td>
+        <td><%= link_to 'Show', funding_info %></td>
+        <td><%= link_to 'Edit', edit_funding_info_path(funding_info) %></td>
+        <td><%= link_to 'Destroy', funding_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Funding Info', new_funding_info_path %>

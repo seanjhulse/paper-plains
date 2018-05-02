@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @job.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @job.description %>
+</p>
+
+<p>
+  <strong>Job number:</strong>
+  <%= @job.job_number %>
+</p>
+
+<p>
+  <strong>Job type:</strong>
+  <%= @job.job_type %>
+</p>
+
+<p>
+  <strong>Artist approval:</strong>
+  <%= @job.artist_approval %>
+</p>
+
+<p>
+  <strong>Editor approval:</strong>
+  <%= @job.editor_approval %>
+</p>
+
+<p>
+  <strong>Vendor approval:</strong>
+  <%= @job.vendor_approval %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @job.client_id %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @job.vendor_id %>
+</p>
+
+<% @job.employee_hours.each do |employee_hours| %>
+	<div>
+		<p>
+		<%= employee_hours.hours %> x <%= humanized_money_with_symbol employee_hours.cost_per_hour %> = <%= humanized_money_with_symbol employee_hours.hours*employee_hours.cost_per_hour %>
+		</p>
+		Charge? <%= employee_hours.charge? %>
+	</div>
+<% end %>
+
+<%= render partial: 'employee_hours/form', locals: { employee_hour: @job.employee_hours.new } %>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

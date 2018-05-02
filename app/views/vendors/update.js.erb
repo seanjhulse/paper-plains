@@ -1,0 +1,5 @@
+var notice = document.getElementById('notice')
+notice.innerHTML = '<%= @notice %>'
+setTimeout(function() {
+	notice.innerHTML = ''
+}, 2000);

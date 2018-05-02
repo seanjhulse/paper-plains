@@ -1,0 +1,41 @@
+<%= simple_form_for @funding_info, remote: true do |form| %>
+  <% if funding_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(funding_info.errors.count, "error") %> prohibited this funding_info from being saved:</h2>
+
+      <ul>
+      <% funding_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.input :fund_code, id: :funding_info_fund_code %>
+  </div>
+
+  <div class="field">
+    <%= form.input :department_code, id: :funding_info_department_code %>
+  </div>
+
+  <div class="field">
+    <%= form.input :program_code, id: :funding_info_program_code %>
+  </div>
+
+  <div class="field">
+    <%= form.input :project_code, id: :funding_info_project_code %>
+  </div>
+
+  <div class="field">
+    <%= form.input :account_code, id: :funding_info_account_code %>
+  </div>
+
+  <div class="field">
+    <%= form.input :client_id, as: :hidden, id: :funding_info_client_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

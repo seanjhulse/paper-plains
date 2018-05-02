@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Employee Hours</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hours</th>
+      <th>Cost per hour cents</th>
+      <th>Cost per hour currency</th>
+      <th>Charge</th>
+      <th>Job</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employee_hours.each do |employee_hour| %>
+      <tr>
+        <td><%= employee_hour.hours %></td>
+        <td><%= employee_hour.cost_per_hour_cents %></td>
+        <td><%= employee_hour.cost_per_hour_currency %></td>
+        <td><%= employee_hour.charge %></td>
+        <td><%= employee_hour.job_id %></td>
+        <td><%= link_to 'Show', employee_hour %></td>
+        <td><%= link_to 'Edit', edit_employee_hour_path(employee_hour) %></td>
+        <td><%= link_to 'Destroy', employee_hour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee Hour', new_employee_hour_path %>

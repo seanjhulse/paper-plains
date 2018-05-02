@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fund code:</strong>
+  <%= @funding_info.fund_code %>
+</p>
+
+<p>
+  <strong>Department code:</strong>
+  <%= @funding_info.department_code %>
+</p>
+
+<p>
+  <strong>Program code:</strong>
+  <%= @funding_info.program_code %>
+</p>
+
+<p>
+  <strong>Project code:</strong>
+  <%= @funding_info.project_code %>
+</p>
+
+<p>
+  <strong>Account code:</strong>
+  <%= @funding_info.account_code %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @funding_info.client_id %>
+</p>
+
+<%= link_to 'Edit', edit_funding_info_path(@funding_info) %> |
+<%= link_to 'Back', funding_infos_path %>

@@ -1,0 +1,15 @@
+<% if funding_info %>
+	<div>
+		<%= button_to 'Update', edit_funding_info_path(funding_info), method: :get, remote: true %>
+		<br/>
+		Funding Code: <%= funding_info.fund_code %>
+		<br/>
+		Account Code: <%= funding_info.account_code %>
+		<br/>
+		Program Code: <%= funding_info.program_code %>
+		<br/>
+		Project Code: <%= funding_info.project_code %>
+		<br/>
+		Department Code: <%= funding_info.department_code %>
+	</div>
+<% end %>

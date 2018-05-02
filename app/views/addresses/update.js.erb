@@ -1,0 +1,3 @@
+document.getElementById('address-<%= @address.id %>').innerHTML = "<%= j render partial: 'address', locals: { address: @address } %>"
+document.getElementById('address-forms').innerHTML = ""
+document.getElementById('add-address-btn').style.display = "block"

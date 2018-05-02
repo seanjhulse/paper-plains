@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<div class="clients-show-grid">
+	<div>
+		<p>
+			<strong>Profile:</strong>
+			<%= simple_form_for @client, remote: true do |form| %>
+				<%= form.input :first_name %>
+				<%= form.input :last_name %>
+				<%= form.input :organization %>
+				<%= form.input :phone %>
+				<%= form.input :email %>
+				<br/>
+				<%= form.submit 'Save' %>
+			<% end %>
+		</p>
+	</div>
+	<div>
+		<p>
+			<strong>Addresses:</strong>
+			<%= button_to "Add a new address", new_address_path, params: {addressable_type: 'client', addressable_id: @client.id}, method: :get, id: "add-address-btn", remote: true %>
+			<ul id="addresses">
+			<% unless @client.addresses.empty? %>
+				<% @client.addresses.order(:created_at => :desc).each do |address| %>
+					<% if address %>
+						<%= render partial: 'addresses/address', locals: { address: address } %>
+					<% end %>
+				<% end %>
+			<% end %>
+			</ul>
+		</p>
+		<div id="address-forms"></div>
+	</div>
+	<div>
+		<p>
+			<strong>Funding Information:</strong>
+
+		<div id="funding-info-forms">
+		<% if @client.funding_info %>
+			<%= render partial: 'funding_infos/funding_info', locals: { funding_info: @client.funding_info } %>
+		<% else %>
+			<%= button_to "Add funding info", new_funding_info_path, params: { client_id: @client.id }, method: :get, remote: true, id: "add-funding-info-btn" %>
+		<% end %>
+		</div>
+
+		</p>
+	</div>
+</div>

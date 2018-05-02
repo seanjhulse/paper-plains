@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div class="vendors-show-grid">
+	<div>
+		<p>
+			<strong>Profile:</strong>
+			<%= simple_form_for @vendor, remote: true do |form| %>
+				<%= form.input :first_name %>
+				<%= form.input :last_name %>
+				<%= form.input :organization %>
+				<%= form.input :phone %>
+				<%= form.input :email %>
+				<%= form.input :blanket_order_number %>
+				<br/>
+				<%= form.submit 'Save' %>
+			<% end %>
+		</p>
+	</div>
+	<div>
+		<p>
+			<strong>Addresses:</strong>
+			<%= button_to "Add a new address", new_address_path, params: {addressable_type: 'vendor', addressable_id: @vendor.id}, method: :get, id: "add-address-btn", remote: true %>
+			<ul id="addresses">
+			<% unless @vendor.addresses.empty? %>
+				<% @vendor.addresses.order(:created_at => :desc).each do |address| %>
+					<% if address %>
+						<%= render partial: 'addresses/address', locals: { address: address } %>
+					<% end %>
+				<% end %>
+			<% end %>
+			</ul>
+		</p>
+		<div id="address-forms"></div>
+	</div>
+</div>

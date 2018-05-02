@@ -1,0 +1,6 @@
+var node = document.createElement('div')
+node.id = "funding-info-<%= @funding_info.id %>"
+node.innerHTML = "<%= j render partial: 'funding_info', locals: { funding_info: @funding_info } %>"
+var funding_node = document.getElementById('funding-info-forms')
+funding_node.innerHTML = ""
+funding_node.appendChild(node)

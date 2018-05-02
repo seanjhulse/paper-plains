@@ -1,0 +1,6 @@
+document.getElementById('address-forms').innerHTML = ""
+var node = document.createElement('li')
+node.id = "address-<%= @address.id %>"
+node.innerHTML = "<%= j render partial: 'address', locals: { address: @address } %>"
+document.getElementById('addresses').prepend(node)
+document.getElementById('add-address-btn').style.display = "block"

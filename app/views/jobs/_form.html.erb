@@ -1,0 +1,53 @@
+<%= simple_form_for @job do |form| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.input :title, id: :job_title %>
+  </div>
+
+  <div class="field">
+    <%= form.input :description, id: :job_description %>
+  </div>
+
+  <div class="field">
+    <%= form.input :job_number, id: :job_job_number %>
+  </div>
+
+  <div class="field">
+		<%= form.input :job_type, collection: Job.job_types, label_method: lambda { |job_type| job_type[0].humanize }, value_method: lambda { |job_type| job_type[0] }, id: :job_job_type %>
+  </div>
+
+  <div class="field">
+    <%= form.input :artist_approval, as: :boolean, id: :job_artist_approval %>
+  </div>
+
+  <div class="field">
+    <%= form.input :editor_approval, as: :boolean, id: :job_editor_approval %>
+  </div>
+
+  <div class="field">
+    <%= form.input :vendor_approval, as: :boolean, id: :job_vendor_approval %>
+  </div>
+
+  <div class="field">
+		<%= form.association :client, as: :select, collection: Client.order(:last_name), label_method: :name, value_method: :id, id: :job_client_id, prompt: "Choose a client" %>
+  </div>
+
+  <div class="field">
+    <%= form.association :vendor, as: :select, collection: Vendor.order(:last_name), label_method: :name, value_method: :id, id: :job_vendor_id, prompt: "Choose a vendor" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

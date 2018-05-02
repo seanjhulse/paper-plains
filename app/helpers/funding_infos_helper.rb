@@ -1,0 +1,2 @@
+module FundingInfosHelper
+end

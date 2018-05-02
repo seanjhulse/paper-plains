@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @employee_hour.hours %>
+</p>
+
+<p>
+  <strong>Cost per hour cents:</strong>
+  <%= @employee_hour.cost_per_hour_cents %>
+</p>
+
+<p>
+  <strong>Cost per hour currency:</strong>
+  <%= @employee_hour.cost_per_hour_currency %>
+</p>
+
+<p>
+  <strong>Charge:</strong>
+  <%= @employee_hour.charge %>
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @employee_hour.job_id %>
+</p>
+
+<%= link_to 'Edit', edit_employee_hour_path(@employee_hour) %> |
+<%= link_to 'Back', employee_hours_path %>

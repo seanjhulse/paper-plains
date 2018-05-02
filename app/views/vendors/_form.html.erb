@@ -1,0 +1,41 @@
+<%= simple_form_for @vendor, remote: true do |form| %>
+  <% if vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+      <ul>
+      <% vendor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.input :first_name, id: :vendor_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.input :last_name, id: :vendor_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.input :organization, id: :vendor_organization %>
+  </div>
+
+  <div class="field">
+    <%= form.input :phone, id: :vendor_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.input :email, id: :vendor_email %>
+  </div>
+
+  <div class="field">
+    <%= form.input :blanket_order_number, id: :vendor_blanket_order_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

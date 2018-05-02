@@ -1,0 +1,17 @@
+<% if address %>
+	<li id='address-<%= address.id %>' class='address-partial-grid address'>
+		<div id='information'>
+			<%= link_to edit_address_path(address), remote: true do %>
+				<%= address.building %>
+				<%= address.street %>,
+				<%= address.city %>,
+				<%= address.state %>
+				<%= address.zip %>
+			<% end %>
+		</div>
+		<div id='delete'>
+			<%= button_to "Delete", address_path(address), method: :delete, remote: true, class: 'delete-button' %>
+		</div>
+	</li>
+<% end %>
+
